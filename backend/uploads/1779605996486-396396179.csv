@@ -1,0 +1,48 @@
+date,customer,category,revenue,city,quantity
+2024-01-05,Arora Enterprises,Electronics,4200.00,Mumbai,4
+2024-01-08,Singh & Co,Food & Beverage,890.50,Delhi,12
+2024-01-12,Mehta Retail,Clothing,1650.00,Bangalore,5
+2024-01-15,Sharma Pvt Ltd,Electronics,3100.00,Hyderabad,3
+2024-01-18,Joshi Traders,Home & Garden,720.00,Mumbai,6
+2024-01-22,Kumar Distributors,Food & Beverage,2200.00,Chennai,20
+2024-01-25,Patel Corp,Electronics,5600.00,Pune,6
+2024-01-28,Gupta Exports,Clothing,980.00,Delhi,4
+2024-02-02,Arora Enterprises,Food & Beverage,1100.00,Mumbai,15
+2024-02-05,Singh & Co,Electronics,2800.00,Delhi,3
+2024-02-09,Reddy Industries,Home & Garden,3200.00,Hyderabad,8
+2024-02-12,Mehta Retail,Electronics,1900.00,Bangalore,2
+2024-02-16,Nair Associates,Food & Beverage,670.00,Kochi,9
+2024-02-20,Sharma Pvt Ltd,Clothing,2400.00,Hyderabad,7
+2024-02-23,Kumar Distributors,Electronics,4100.00,Chennai,4
+2024-02-27,Joshi Traders,Food & Beverage,550.00,Mumbai,8
+2024-03-03,Patel Corp,Home & Garden,1800.00,Pune,5
+2024-03-07,Gupta Exports,Electronics,3600.00,Delhi,4
+2024-03-11,Arora Enterprises,Clothing,2100.00,Mumbai,6
+2024-03-15,Reddy Industries,Food & Beverage,1400.00,Hyderabad,18
+2024-03-19,Singh & Co,Electronics,5200.00,Delhi,5
+2024-03-22,Mehta Retail,Home & Garden,890.00,Bangalore,3
+2024-03-26,Sharma Pvt Ltd,Food & Beverage,3300.00,Hyderabad,22
+2024-03-29,Kumar Distributors,Clothing,1700.00,Chennai,5
+2024-04-03,Nair Associates,Electronics,2600.00,Kochi,3
+2024-04-07,Joshi Traders,Home & Garden,1200.00,Mumbai,4
+2024-04-11,Patel Corp,Food & Beverage,4500.00,Pune,30
+2024-04-15,Gupta Exports,Electronics,3800.00,Delhi,4
+2024-04-18,Arora Enterprises,Clothing,1600.00,Mumbai,5
+2024-04-22,Reddy Industries,Electronics,6100.00,Hyderabad,6
+2024-04-26,Singh & Co,Food & Beverage,980.00,Delhi,13
+2024-04-29,Mehta Retail,Home & Garden,2200.00,Bangalore,7
+2024-05-03,Sharma Pvt Ltd,Electronics,4400.00,Hyderabad,4
+2024-05-07,Kumar Distributors,Clothing,2800.00,Chennai,8
+2024-05-11,Nair Associates,Food & Beverage,760.00,Kochi,10
+2024-05-15,Joshi Traders,Electronics,3100.00,Mumbai,3
+2024-05-19,Patel Corp,Clothing,1900.00,Pune,6
+2024-05-23,Gupta Exports,Food & Beverage,1300.00,Delhi,17
+2024-05-27,Arora Enterprises,Home & Garden,2700.00,Mumbai,9
+2024-05-31,Reddy Industries,Electronics,5500.00,Hyderabad,5
+2024-06-04,Singh & Co,Clothing,2100.00,Delhi,7
+2024-06-08,Mehta Retail,Food & Beverage,1800.00,Bangalore,20
+2024-06-12,Sharma Pvt Ltd,Electronics,6200.00,Hyderabad,6
+2024-06-16,Kumar Distributors,Home & Garden,1400.00,Chennai,5
+2024-06-20,Nair Associates,Electronics,3700.00,Kochi,4
+2024-06-24,Joshi Traders,Clothing,890.00,Mumbai,3
+2024-06-28,Patel Corp,Electronics,7100.00,Pune,7
