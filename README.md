@@ -103,9 +103,3 @@ cd frontend && npm run dev
 
 ---
 
-## 💬 Interview Talking Points
-
-- **Data Pipeline**: "I built a CSV ingestion pipeline with validation, cleaning via Pandas, and structured storage in MongoDB"
-- **Forecasting**: "Used scikit-learn linear regression on historical sales data to predict future revenue trends"
-- **LLM Workflow**: "Gemini API receives aggregated analytics context + user query and generates grounded business insights"
-- **Architecture**: "Microservice-style separation — Node.js handles API routing, Python handles all ML computation via child process spawning"
