@@ -143,7 +143,7 @@ function runMLPipeline(uploadId, filePath, records) {
     .replace(/\\/g, "/");
   fs.writeFileSync(jsonPath, JSON.stringify(records));
 
-  const pythonPath = process.env.PYTHON_PATH || "python";
+  const pythonPath = process.env.PYTHON_PATH || "python3";
   const mlDir = path.join(__dirname, "../../ml-service");
   const scriptPath = path.join(mlDir, "main.py");
 
@@ -154,7 +154,6 @@ function runMLPipeline(uploadId, filePath, records) {
 
   const py = spawn(pythonPath, [scriptPath, uploadId, jsonPath], {
     cwd: mlDir,
-    shell: true,
   });
 
   let output = "";
