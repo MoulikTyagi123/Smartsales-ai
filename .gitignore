@@ -2,8 +2,7 @@ node_modules/
 .env
 *.log
 dist/
-uploads/*.csv
-uploads/*.json
+backend/uploads/
 __pycache__/
 *.pyc
 .env.local
