@@ -45,22 +45,23 @@ export default function UploadPage({ onSuccess }) {
   };
 
   return (
-    <div className="max-w-2xl mx-auto">
+    <div style={{ maxWidth: "42rem", margin: "0 auto" }}>
       {/* Header */}
-      <div className="mb-10">
-        <div className="tag mb-4">Step 1 of 3</div>
-        <h1 className="text-4xl font-bold mb-3" style={{ fontFamily: "Syne" }}>
+      <div className="mb-8">
+        <div className="tag mb-3">Step 1 of 3</div>
+        <h1 className="font-bold mb-2" style={{ fontFamily: "Syne", fontSize: "clamp(1.6rem, 6vw, 2.5rem)" }}>
           Upload your sales data
         </h1>
-        <p className="text-base" style={{ color: "var(--text-secondary)" }}>
+        <p style={{ color: "var(--text-secondary)", fontSize: "clamp(0.85rem, 3vw, 1rem)" }}>
           Drop a CSV file and let SmartSales AI clean, analyze, and forecast your data automatically.
         </p>
       </div>
 
       {/* Drop Zone */}
       <div
-        className={`relative rounded-2xl p-10 text-center transition-all cursor-pointer ${dragging ? "gradient-border" : ""}`}
+        className={`relative rounded-2xl text-center transition-all cursor-pointer ${dragging ? "gradient-border" : ""}`}
         style={{
+          padding: "clamp(1.5rem, 6vw, 2.5rem)",
           border: dragging
             ? "2px dashed var(--accent)"
             : file
@@ -83,8 +84,8 @@ export default function UploadPage({ onSuccess }) {
 
         {file ? (
           <div className="fade-up">
-            <CheckCircle size={40} className="mx-auto mb-4" style={{ color: "var(--accent)" }} />
-            <p className="font-semibold text-lg mb-1" style={{ color: "var(--text-primary)" }}>
+            <CheckCircle size={36} className="mx-auto mb-3" style={{ color: "var(--accent)" }} />
+            <p className="font-semibold mb-1" style={{ color: "var(--text-primary)", fontSize: "clamp(0.95rem, 3vw, 1.1rem)" }}>
               {file.name}
             </p>
             <p className="text-sm" style={{ color: "var(--text-muted)" }}>
@@ -100,12 +101,12 @@ export default function UploadPage({ onSuccess }) {
           </div>
         ) : (
           <div>
-            <CloudUpload size={40} className="mx-auto mb-4" style={{ color: "var(--text-muted)" }} />
-            <p className="font-semibold text-lg mb-1" style={{ color: "var(--text-primary)" }}>
+            <CloudUpload size={36} className="mx-auto mb-3" style={{ color: "var(--text-muted)" }} />
+            <p className="font-semibold mb-1" style={{ color: "var(--text-primary)", fontSize: "clamp(0.95rem, 3vw, 1.1rem)" }}>
               Drop your CSV file here
             </p>
             <p className="text-sm mb-4" style={{ color: "var(--text-muted)" }}>
-              or click to browse
+              or tap to browse
             </p>
             <span className="tag">CSV files up to 50MB</span>
           </div>
@@ -114,8 +115,8 @@ export default function UploadPage({ onSuccess }) {
 
       {/* Error */}
       {error && (
-        <div className="mt-4 flex items-center gap-2 p-4 rounded-xl" style={{ background: "rgba(248,113,113,0.1)", border: "1px solid rgba(248,113,113,0.25)" }}>
-          <AlertCircle size={16} style={{ color: "#f87171" }} />
+        <div className="mt-4 flex items-center gap-2 p-3 rounded-xl" style={{ background: "rgba(248,113,113,0.1)", border: "1px solid rgba(248,113,113,0.25)" }}>
+          <AlertCircle size={15} style={{ color: "#f87171" }} />
           <p className="text-sm" style={{ color: "#f87171" }}>{error}</p>
         </div>
       )}
@@ -124,11 +125,12 @@ export default function UploadPage({ onSuccess }) {
       {file && !uploading && (
         <button
           onClick={handleSubmit}
-          className="w-full mt-4 py-4 rounded-2xl font-semibold text-base transition-all fade-up"
+          className="w-full mt-4 py-4 rounded-2xl font-semibold transition-all fade-up"
           style={{
             background: "var(--accent)",
             color: "#0a0f0d",
             fontFamily: "Syne",
+            fontSize: "clamp(0.9rem, 3vw, 1rem)",
           }}
         >
           Process Data →
@@ -155,21 +157,22 @@ export default function UploadPage({ onSuccess }) {
       )}
 
       {/* Sample format */}
-      <div className="mt-8 card p-5">
+      <div className="mt-6 card p-4">
         <div className="flex items-center gap-2 mb-3">
-          <FileText size={14} style={{ color: "var(--accent)" }} />
+          <FileText size={13} style={{ color: "var(--accent)" }} />
           <span className="text-sm font-semibold" style={{ color: "var(--text-secondary)" }}>
             Expected CSV format
           </span>
         </div>
         <pre
-          className="text-xs overflow-x-auto rounded-xl p-4"
+          className="text-xs overflow-x-auto rounded-xl p-3"
           style={{
             background: "var(--bg-primary)",
             color: "var(--accent)",
             border: "1px solid var(--border)",
             fontFamily: "JetBrains Mono",
             lineHeight: 1.7,
+            fontSize: "clamp(9px, 2.5vw, 12px)",
           }}
         >
           {SAMPLE_FORMAT}

@@ -23,7 +23,6 @@ export function useAnalytics(uploadId) {
           setAnalytics(analyticsRes.data);
           setLoading(false);
         }
-        // No timeout — keep polling until ready
       } catch (err) {
         clearInterval(pollRef.current);
         setError(err.response?.data?.error || "Failed to load analytics");

@@ -8,28 +8,29 @@ const SUGGESTIONS = [
   "Which city performs best?",
   "Who are the top customers?",
   "What is the revenue trend?",
-  "How many repeat customers do I have?",
+  "How many repeat customers?",
 ];
 
 function Message({ msg }) {
   const isUser = msg.role === "user";
   return (
-    <div className={`flex gap-3 fade-up ${isUser ? "flex-row-reverse" : ""}`}>
+    <div className={`flex gap-2 fade-up ${isUser ? "flex-row-reverse" : ""}`}>
       <div
-        className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
+        className="w-7 h-7 rounded-xl flex items-center justify-center flex-shrink-0"
         style={{
           background: isUser ? "rgba(96,165,250,0.15)" : "var(--accent-muted)",
           border: `1px solid ${isUser ? "rgba(96,165,250,0.3)" : "rgba(74,222,128,0.3)"}`,
         }}
       >
         {isUser
-          ? <User size={14} style={{ color: "#60a5fa" }} />
-          : <Bot size={14} style={{ color: "var(--accent)" }} />
+          ? <User size={12} style={{ color: "#60a5fa" }} />
+          : <Bot size={12} style={{ color: "var(--accent)" }} />
         }
       </div>
       <div
-        className="max-w-xl px-4 py-3 rounded-2xl text-sm leading-relaxed"
+        className="px-3 py-2 rounded-2xl text-sm leading-relaxed"
         style={{
+          maxWidth: "min(75vw, 28rem)",
           background: isUser ? "rgba(96,165,250,0.1)" : "var(--bg-card)",
           border: `1px solid ${isUser ? "rgba(96,165,250,0.2)" : "var(--border)"}`,
           color: "var(--text-secondary)",
@@ -91,32 +92,38 @@ export default function ChatPage({ uploadId }) {
   }
 
   return (
-    <div className="flex flex-col h-[calc(100vh-4rem)] max-w-3xl mx-auto">
+    <div
+      className="flex flex-col mx-auto"
+      style={{
+        maxWidth: "48rem",
+        height: "calc(100dvh - 5rem)",
+      }}
+    >
       {/* Header */}
-      <div className="mb-6">
+      <div className="mb-4 flex-shrink-0">
         <div className="flex items-center gap-2 mb-1">
-          <Sparkles size={18} style={{ color: "var(--accent)" }} />
-          <h1 className="text-3xl font-bold" style={{ fontFamily: "Syne" }}>
+          <Sparkles size={16} style={{ color: "var(--accent)" }} />
+          <h1 className="font-bold" style={{ fontFamily: "Syne", fontSize: "clamp(1.4rem, 5vw, 2rem)" }}>
             AI Chat
           </h1>
         </div>
-        <p className="text-sm" style={{ color: "var(--text-muted)" }}>
+        <p className="text-xs" style={{ color: "var(--text-muted)" }}>
           Ask natural language questions about your sales data
         </p>
       </div>
 
       {/* Messages */}
-      <div className="flex-1 overflow-y-auto space-y-4 pb-4">
+      <div className="flex-1 overflow-y-auto space-y-3 pb-3">
         {messages.map((msg, i) => (
           <Message key={i} msg={msg} />
         ))}
         {loading && (
-          <div className="flex gap-3">
+          <div className="flex gap-2">
             <div
-              className="w-8 h-8 rounded-xl flex items-center justify-center"
+              className="w-7 h-7 rounded-xl flex items-center justify-center"
               style={{ background: "var(--accent-muted)", border: "1px solid rgba(74,222,128,0.3)" }}
             >
-              <Bot size={14} style={{ color: "var(--accent)" }} />
+              <Bot size={12} style={{ color: "var(--accent)" }} />
             </div>
             <div
               className="px-4 py-3 rounded-2xl"
@@ -139,7 +146,7 @@ export default function ChatPage({ uploadId }) {
 
       {/* Suggestions */}
       {messages.length <= 1 && (
-        <div className="flex flex-wrap gap-2 mb-4">
+        <div className="flex flex-wrap gap-2 mb-3 flex-shrink-0">
           {SUGGESTIONS.map((s) => (
             <button
               key={s}
@@ -159,7 +166,7 @@ export default function ChatPage({ uploadId }) {
 
       {/* Input */}
       <div
-        className="flex gap-3 p-2 rounded-2xl"
+        className="flex gap-2 p-2 rounded-2xl flex-shrink-0"
         style={{ background: "var(--bg-card)", border: "1px solid var(--border-bright)" }}
       >
         <input
@@ -167,20 +174,20 @@ export default function ChatPage({ uploadId }) {
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && send()}
           placeholder="Ask about your sales data..."
-          className="flex-1 bg-transparent text-sm px-3 py-2 outline-none"
+          className="flex-1 bg-transparent text-sm px-2 py-2 outline-none min-w-0"
           style={{ color: "var(--text-primary)", fontFamily: "DM Sans" }}
           disabled={loading}
         />
         <button
           onClick={() => send()}
           disabled={!input.trim() || loading}
-          className="w-10 h-10 rounded-xl flex items-center justify-center transition-all"
+          className="w-9 h-9 rounded-xl flex items-center justify-center transition-all flex-shrink-0"
           style={{
             background: input.trim() && !loading ? "var(--accent)" : "var(--bg-card-hover)",
             color: input.trim() && !loading ? "#0a0f0d" : "var(--text-muted)",
           }}
         >
-          <Send size={15} />
+          <Send size={14} />
         </button>
       </div>
     </div>

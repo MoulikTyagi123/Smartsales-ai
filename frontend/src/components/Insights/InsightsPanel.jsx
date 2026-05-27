@@ -24,23 +24,24 @@ export default function InsightsPanel({ uploadId }) {
   };
 
   return (
-    <div className="card p-5">
-      <div className="flex items-center justify-between mb-4">
+    <div className="card p-4">
+      <div className="flex items-center justify-between mb-4 gap-2 flex-wrap">
         <div className="flex items-center gap-2">
           <Sparkles size={16} style={{ color: "var(--accent)" }} />
-          <h3 className="text-base font-semibold" style={{ color: "var(--text-primary)" }}>
+          <h3 className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>
             AI Business Insights
           </h3>
         </div>
         <button
           onClick={fetchInsights}
           disabled={loading}
-          className="flex items-center gap-2 text-xs px-4 py-2 rounded-xl font-semibold transition-all"
+          className="flex items-center gap-2 text-xs px-3 py-2 rounded-xl font-semibold transition-all"
           style={{
             background: loading ? "var(--bg-card-hover)" : "var(--accent-muted)",
             color: loading ? "var(--text-muted)" : "var(--accent)",
             border: "1px solid rgba(74,222,128,0.25)",
             cursor: loading ? "not-allowed" : "pointer",
+            whiteSpace: "nowrap",
           }}
         >
           {loading ? (
@@ -51,7 +52,7 @@ export default function InsightsPanel({ uploadId }) {
           ) : (
             <>
               <Sparkles size={12} />
-              {fetched ? "Regenerate" : "Generate Insights"}
+              {fetched ? "Regenerate" : "Generate"}
             </>
           )}
         </button>
@@ -64,9 +65,9 @@ export default function InsightsPanel({ uploadId }) {
       )}
 
       {!fetched && !loading && (
-        <div className="text-center py-8" style={{ color: "var(--text-muted)" }}>
-          <Lightbulb size={32} className="mx-auto mb-3 opacity-40" />
-          <p className="text-sm">Click "Generate Insights" to get AI-powered analysis of your sales data</p>
+        <div className="text-center py-6" style={{ color: "var(--text-muted)" }}>
+          <Lightbulb size={28} className="mx-auto mb-3 opacity-40" />
+          <p className="text-xs">Click "Generate" to get AI-powered analysis of your sales data</p>
         </div>
       )}
 
@@ -75,7 +76,7 @@ export default function InsightsPanel({ uploadId }) {
           {insights.map((insight, i) => (
             <div
               key={i}
-              className="flex gap-3 p-4 rounded-xl fade-up"
+              className="flex gap-3 p-3 rounded-xl fade-up"
               style={{
                 background: "var(--bg-card-hover)",
                 border: "1px solid var(--border)",
@@ -88,7 +89,7 @@ export default function InsightsPanel({ uploadId }) {
               >
                 {i + 1}
               </div>
-              <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+              <p className="text-xs leading-relaxed" style={{ color: "var(--text-secondary)" }}>
                 {insight}
               </p>
             </div>

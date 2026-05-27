@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Sidebar from "./components/Dashboard/Sidebar";
+import MobileNav from "./components/Dashboard/MobileNav";
 import UploadPage from "./pages/UploadPage";
 import DashboardPage from "./pages/DashboardPage";
 import ChatPage from "./pages/ChatPage";
@@ -15,12 +16,19 @@ export default function App() {
 
   return (
     <div className="flex min-h-screen" style={{ background: "var(--bg-primary)" }}>
+      {/* Desktop Sidebar */}
       <Sidebar
+        className="desktop-sidebar"
         page={page}
         setPage={setPage}
         hasData={!!uploadId}
       />
-      <main className="flex-1 ml-64 p-8 overflow-auto">
+
+      {/* Main Content */}
+      <main
+        className="main-content flex-1 overflow-auto"
+        style={{ marginLeft: "var(--sidebar-width)", padding: "2rem" }}
+      >
         {page === "upload" && (
           <UploadPage onSuccess={handleUploadSuccess} />
         )}
@@ -31,6 +39,9 @@ export default function App() {
           <ChatPage uploadId={uploadId} />
         )}
       </main>
+
+      {/* Mobile Bottom Nav */}
+      <MobileNav page={page} setPage={setPage} hasData={!!uploadId} />
     </div>
   );
 }

@@ -55,18 +55,18 @@ function StatCard({ metric, value }) {
 
   return (
     <div
-      className="card p-5 fade-up"
+      className="card p-4 fade-up"
       style={{ animationDelay: `${METRICS.indexOf(metric) * 60}ms` }}
     >
-      <div className="flex items-start justify-between mb-4">
+      <div className="flex items-start justify-between mb-3">
         <div
-          className="w-10 h-10 rounded-xl flex items-center justify-center"
+          className="w-9 h-9 rounded-xl flex items-center justify-center"
           style={{ background: `${metric.color}18`, border: `1px solid ${metric.color}30` }}
         >
           {isGrowth ? (
-            <GrowthIcon size={18} style={{ color: metric.color }} />
+            <GrowthIcon size={16} style={{ color: metric.color }} />
           ) : (
-            <Icon size={18} style={{ color: metric.color }} />
+            <Icon size={16} style={{ color: metric.color }} />
           )}
         </div>
         {isGrowth && (
@@ -82,10 +82,10 @@ function StatCard({ metric, value }) {
           </span>
         )}
       </div>
-      <div className="num text-2xl font-bold mb-1" style={{ color: "var(--text-primary)" }}>
+      <div className="num font-bold mb-1" style={{ color: "var(--text-primary)", fontSize: "clamp(1.1rem, 4vw, 1.5rem)" }}>
         {metric.format(value)}
       </div>
-      <div className="text-sm" style={{ color: "var(--text-muted)" }}>
+      <div className="text-xs" style={{ color: "var(--text-muted)" }}>
         {metric.label}
       </div>
     </div>
@@ -94,7 +94,7 @@ function StatCard({ metric, value }) {
 
 export default function StatCards({ analytics }) {
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+    <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
       {METRICS.map((metric) => (
         <StatCard key={metric.key} metric={metric} value={analytics[metric.key]} />
       ))}

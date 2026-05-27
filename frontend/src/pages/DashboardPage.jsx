@@ -55,15 +55,15 @@ export default function DashboardPage({ uploadId }) {
   if (!analytics) return null;
 
   return (
-    <div className="space-y-6 fade-up">
+    <div className="space-y-4 fade-up">
       {/* Header */}
-      <div className="flex items-start justify-between">
+      <div className="flex items-start justify-between flex-wrap gap-2">
         <div>
-          <h1 className="text-3xl font-bold" style={{ fontFamily: "Syne" }}>
+          <h1 className="page-title font-bold" style={{ fontFamily: "Syne", fontSize: "clamp(1.5rem, 5vw, 2rem)" }}>
             Sales Dashboard
           </h1>
-          <p className="text-sm mt-1" style={{ color: "var(--text-muted)" }}>
-            Upload ID: <span className="num text-xs">{uploadId}</span>
+          <p className="text-xs mt-1" style={{ color: "var(--text-muted)" }}>
+            Upload ID: <span className="num">{uploadId}</span>
           </p>
         </div>
         <div className="tag">Live</div>
@@ -72,7 +72,7 @@ export default function DashboardPage({ uploadId }) {
       {/* KPI Cards */}
       <StatCards analytics={analytics} />
 
-      {/* Charts Row 1 */}
+      {/* Charts Row 1 — stacks on mobile */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <RevenueLineChart data={analytics.monthlyRevenue} />
         <ForecastLineChart
@@ -81,8 +81,8 @@ export default function DashboardPage({ uploadId }) {
         />
       </div>
 
-      {/* Charts Row 2 */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+      {/* Charts Row 2 — stacks on mobile, 3-col on lg */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <CategoryBarChart data={analytics.topCategories} />
         <CityBarChart data={analytics.topCities} />
         <SegmentPieChart segments={analytics.customerSegments} />

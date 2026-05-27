@@ -15,6 +15,7 @@
   --text-primary: #e8f5ec;
   --text-secondary: #9db8a4;
   --text-muted: #5a7a62;
+  --sidebar-width: 256px;
 }
 
 * {
@@ -137,4 +138,47 @@ h1, h2, h3, h4, h5 {
 }
 .recharts-tooltip-wrapper {
   outline: none !important;
+}
+
+/* ── Mobile bottom nav ── */
+.mobile-nav {
+  display: none;
+}
+
+/* ── Sidebar overlay ── */
+.sidebar-overlay {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --sidebar-width: 0px;
+  }
+
+  .desktop-sidebar {
+    display: none !important;
+  }
+
+  .mobile-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border);
+    padding: 8px 0 max(8px, env(safe-area-inset-bottom));
+  }
+
+  .main-content {
+    margin-left: 0 !important;
+    padding: 16px !important;
+    padding-bottom: 80px !important;
+  }
+
+  /* Shrink h1 on mobile */
+  h1.page-title {
+    font-size: 1.6rem !important;
+  }
 }

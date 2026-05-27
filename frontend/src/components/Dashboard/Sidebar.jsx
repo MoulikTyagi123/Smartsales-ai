@@ -6,13 +6,14 @@ const navItems = [
   { id: "chat", label: "AI Chat", icon: MessageSquare, requiresData: true },
 ];
 
-export default function Sidebar({ page, setPage, hasData }) {
+export default function Sidebar({ page, setPage, hasData, className = "" }) {
   return (
     <aside
-      className="fixed left-0 top-0 h-screen w-64 flex flex-col"
+      className={`fixed left-0 top-0 h-screen w-64 flex flex-col ${className}`}
       style={{
         background: "var(--bg-secondary)",
         borderRight: "1px solid var(--border)",
+        zIndex: 40,
       }}
     >
       {/* Logo */}
